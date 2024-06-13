@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnataka Sanchari</title>
+    <link rel="icon" href="logo1.png" type="image/png"> <!-- Replace "logo.png" with the path to your logo image -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap">  
+    <link rel="stylesheet" href="style0.css">
+    <!-- Firebase JS SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function disableBackButton() {
+
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+    }
+</script>
+</head>    
+<body>
+    <div class="container">
+        <div class="background">
+            <video autoplay loop muted>
+                <source src="video.mp4" type="video/mp4"> <!-- Replace 'video.mp4' with your video file URL -->
+                Your browser does not support the video tag.
+            </video>
+        </div> <!-- Background div -->
+        <header>
+            <img src="logo1.png" alt="DiscoverIt Logo">
+            <h1><b id="animated-text">Karnataka Sanchari</b></h1>   
+            <!-- Add a placeholder element with the same height as the animated text -->
+            <div id="placeholder" style="height: 72px;"></div>
+        </header>
+        <form class="form" id="MainForm">
+            <input type="email" placeholder="Email" id="email">
+            <input type="password" placeholder="Password" id="password">
+            <button type="submit" id="submit" onclick = "disableBackButton()">Start Exploring</button>
+            <button type="button" id="google-signin">
+                <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google Logo">
+                Sign in with Google
+            </button>
+            <a href="forgot.html" id="forgotPasswordLabel">Forgot Password?</a>
+            <a href="signup.html">New User? Sign up</a>
+        </form>
+        <footer>
+            <h2><p>Navigate with confidence, Discover with trust</p></h2>
+        </footer>
+    </div>    
+</body>
+<script type="module">
+function preventBack(){window.history.forward()};
+setTimeout("preventBack",  0);
+window.onunload=function(){null;}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+const firebaseConfig = {
+    apiKey: "AIzaSyDNZffbW7SjBmHGMVpHSipPz_5G3jFn9r4",
+    authDomain: "discoverit-d38b1.firebaseapp.com",
+    projectId: "discoverit-d38b1",
+    storageBucket: "discoverit-d38b1.appspot.com",
+    messagingSenderId: "464506288095",
+    appId: "1:464506288095:web:d65682612aea62793f766a"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); 
+const provider = new GoogleAuthProvider();
+auth.languageCode = 'en'; 
+const googlesignin = document.getElementById("google-signin");
+googlesignin.addEventListener("click", function()
+{
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const user = result.user;
+    console.log(user);
+    window.location.href = "index.html";
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+})
+const submit = document.getElementById('submit');
+submit.addEventListener("click", function (event) {
+    event.preventDefault() 
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.location.href = "index.html"; 
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+});
+onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location.href = "../index.html";
+            }
+        });
+let MainForm = document.getElementById('MainForm');
+let forgotPassword = () => {
+    sendPasswordResetEmail(auth, email.value)
+    .then(() => {
+        alert("Congratulation!" , "Signin password has been sent!", "Please check your email")
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Sorry!", "Please enter your correct Email ID!")
+    })
+}
+MainForm.addEventListener('submit' , SigninUser);
+forgotPasswordLabel.addEventListener('click' , forgotPassword);
+</script>
+<script>
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+    const auth = getAuth();
+    
+    onAuthStateChanged(auth, (user) => {
+      const profilePicElement = document.getElementById('profile-pic');
+    
+      if (user) {
+        // User is signed in
+        const uid = user.uid;
+        const photoURL = user.photoURL;
+    
+        // Update the profile picture
+        if (photoURL) {
+          profilePicElement.src = photoURL;
+          profilePicElement.style.display = 'block';
+        } else {
+          // If no photo URL is available, you can display a default image or hide the element
+          profilePicElement.style.display = 'none';
+        }
+      } else {
+        // User is signed out
+        profilePicElement.style.display = 'none';
+      }
+    });
+    </script>
+</html>

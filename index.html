@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Karnataka Sanchari</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link rel="icon" href="logo1.png" type="image/png">
+  <link href="css/responsive.css" rel="stylesheet" />
+  <script language = 'javascript' type = "text/javascript">
+    function DisableBackButton()
+    {
+      window.history.forward();
+    }
+    DisableBackButton();
+    window.onloaaad = DisableBackButton;
+    window.onpageshow = function(evt){if (evt.persisted) DisableBackButton()}
+    window.onunload = function()
+    {
+      void(0)
+    }
+  </script>
+</head>
+
+<body>
+<section class="slider_section position-relative">
+  <div class="video-box">
+    <!-- The video tag for your video -->
+    <video autoplay loop muted playsinline class="d-block w-100">
+      <!-- Replace 'videos/your_video.mp4' with the actual path to your video file -->
+      <source src="images\3903754-hd_1920_1080_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay_text">
+      <!-- You can overlay text directly over the video -->
+      <h1>WELCOME TO KARNATAKA SANCHARI</h1>
+    </div>
+  </div>
+</section>
+  </div>
+<section class="nav_section">
+  <div class="container">
+    <div class="custom_nav2">
+      <nav class="navbar navbar-expand custom_nav-container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Tips</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>
+  <section class="filter_section layout_padding">
+    <div class="container">
+      <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Exploring Karnataka</h2>
+      <p class="text-center" style="font-size: 1.25rem; margin-bottom: 2rem;">Customize your trip with our filters:</p>
+      <div class="row justify-content-center mb-4">
+        <div class="col-sm-4 mb-2"> <!-- Changed to col-sm-4 to fit all in one row -->
+          <label for="start-date">Start Date:</label>
+          <input type="date" id="start-date" name="start-date" class="form-control d-block w-100">
+        </div>
+        <div class="col-sm-4 mb-2"> <!-- Changed to col-sm-4 to fit all in one row -->
+          <label for="end-date">End Date:</label>
+          <input type="date" id="end-date" name="end-date" class="form-control d-block w-100">
+        </div>
+        <div class="col-sm-4 mb-2"> <!-- Added this column for location -->
+          <label for="location">Location:</label>
+          <select id="location" name="location" class="form-control d-block w-100">
+            <option value="">Select Location</option>
+            <option value="bengaluru">Bengaluru</option>
+            <option value="mysuru">Mysuru</option>
+            <option value="shivamogga">Shivamogga</option>
+            <option value="hassan">Hassan</option>
+            <option value="mandya">Mandya</option>
+            <option value="bellary">Bellary</option>
+            <option value="hampi">Hampi</option>
+            <option value="udupi">Udupi</option>
+            <option value="mangalore">Mangalore</option>
+            <option value="dharwad">Dharwad</option>
+            <option value="kalaburgi">Kalaburgi</option>
+            <option value="karwar">Karwar</option>
+            <option value="chikmagaluru">Chikmagaluru</option>
+            <option value="gadag">Gadag</option>
+            
+          </select>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+      <div class="text-center mb-4">
+        <img src="images\blackwhite-bangalore.png" alt="Bengaluru" class="img-fluid" style="max-height: 300px;">
+      </div>
+  
+      <div class="text-center">
+        <button id="generate-itinerary" class="btn btn-primary px-5 py-2" style="font-size: 1.25rem; border-radius: 5px; background-color: #ffa500; border-color: #ffa500;">
+          Generate your customized itinerary
+        </button>
+      </div>
+  </section>
+  
+
+ 
+  <div id="itinerary-display" style="display: none;">
+    <h2>Your Customized Itinerary:</h2>
+    <pre id="itinerary-text"></pre>
+  </div>
+  
+
+
+ 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const generateButton = document.getElementById("generate-itinerary");
+        const locationSelect = document.getElementById("location");
+        const startDateInput = document.getElementById("start-date");
+        const endDateInput = document.getElementById("end-date");
+        const itineraryDisplay = document.getElementById("itinerary-display");
+        const itineraryText = document.getElementById("itinerary-text");
+    
+        generateButton.addEventListener("click", () => {
+            const selectedLocation = locationSelect.value;
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+            const dateGap = (endDate - startDate) / (1000 * 60 * 60 * 24);
+    
+            const locations = {
+                bengaluru: generateRandomPlaces("Bengaluru"),
+                mysuru: generateRandomPlaces("Mysuru"),
+                shivamogga: generateRandomPlaces("Shivamogga"),
+                hassan: generateRandomPlaces("Hassan"),
+                mandya: generateRandomPlaces("Mandya"),
+                bellary: generateRandomPlaces("Bellary"),
+                hampi: generateRandomPlaces("Hampi"),
+                udupi: generateRandomPlaces("Udupi"),
+                mangalore: generateRandomPlaces("Mangalore"),
+                dharwad: generateRandomPlaces("Dharwad"),
+                kalaburgi: generateRandomPlaces("Kalaburgi"),
+                karwar: generateRandomPlaces("Karwar"),
+                chikmagaluru: generateRandomPlaces("Chikmagaluru"),
+                gadag: generateRandomPlaces("Gadag"),
+            };
+    
+            if (locations[selectedLocation]) {
+                let places = locations[selectedLocation];
+                if (dateGap >= 5) {
+                    places = places.slice(0, 20);
+                } else if (dateGap >= 3) {
+                    places = places.slice(0, 15);
+                } else if (dateGap >= 1) {
+                    places = places.slice(0, 3);
+                } else {
+                    places = places.slice(0, 1);
+                }
+                displayItinerary(places);
+            } else {
+                itineraryText.innerHTML = "<p>Please select a valid location.</p>";
+                itineraryDisplay.style.display = "block";
+            }
+        });
+    
+        function generateRandomPlaces(location) {
+            const placeNames = [
+                `${location} Place 1`, `${location} Place 2`, `${location} Place 3`, `${location} Place 4`, `${location} Place 5`, 
+                `${location} Place 6`, `${location} Place 7`, `${location} Place 8`, `${location} Place 9`, `${location} Place 10`, 
+                `${location} Place 11`, `${location} Place 12`, `${location} Place 13`, `${location} Place 14`, `${location} Place 15`, 
+                `${location} Place 16`, `${location} Place 17`, `${location} Place 18`, `${location} Place 19`, `${location} Place 20`
+            ];
+            const places = placeNames.map(name => ({
+                name,
+                rating: (Math.random() * 2 + 3).toFixed(1), // Random rating between 3.0 and 5.0
+                distance: Math.floor(Math.random() * 20) + 1, // Random distance between 1 and 20 km
+                cost: Math.floor(Math.random() * 2000) + 500 // Random cost between 500 and 2500 rupees
+            }));
+            return places.sort((a, b) => b.rating - a.rating); // Sort by rating in descending order
+        }
+    
+        function displayItinerary(places) {
+            itineraryText.innerHTML = "";
+            places.forEach(place => {
+                const placeDiv = document.createElement("div");
+                placeDiv.className = "itinerary-item";
+                placeDiv.innerHTML = `
+                    <h3>${place.name}</h3>
+                    <p>Rating: ${place.rating}</p>
+                    <p>Distance: ${place.distance} km</p>
+                    <p>Cost: ₹${place.cost}</p>
+                `;
+                itineraryText.appendChild(placeDiv);
+            });
+            itineraryDisplay.style.display = "block";
+        }
+    });
+    </script>
+    
+
+
+ <!-- end itinerary section -->
+
+      <!-- Carousel item start -->
+      <!-- Famous Landmarks Title -->
+<div class="container mt-5"> <!-- Container for proper alignment and spacing -->
+  <h2 class="text-center">Famous Landmarks</h2> <!-- Title centered on the page -->
+</div>
+  
+      <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExample" data-slide-to="1"></li>
+          <!-- Add more indicators if you have more slides -->
+        </ol>
+      
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\bandipuredit.png" class="d-block w-100" alt="Landmark 1">
+                  <div class="carousel-caption">Bandipur National Park, Gundlupet</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\jog edit.png" class="d-block w-100" alt="Landmark 2">
+                  <div class="carousel-caption">Jog Falls, Sagara</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\goledit.png" class="d-block w-100" alt="Landmark 3">
+                  <div class="carousel-caption">Gol Gumbaz, Bijapur</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat the above block for additional slides, with each slide containing up to three images -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\chitradurga-edit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Chitradurga Fort, Chitradurga</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\lalbagh-resize.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Lalbagh Botanical Garden, Bengaluru</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\mysore palace.edit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Mysore Palace, Mysuru</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more carousel-item blocks as needed -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\Shravanabelgola_resized.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Shravanabelagola, Hassan District</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\tipu edit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Tipu Sultan's Summer Palace, Srirangapatna</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\beluruedit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Belur and Halebidu Temples, Hassan District</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\virupaksha-edit.jpg.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Virupaksha Temple, Hampi</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\Srirangapatnam edit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Srirangapatna Fort, Mandya District</div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="carousel-landmark">
+                  <img src="images\Badami edit.png" class="d-block w-100" alt="Landmark 4">
+                  <div class="carousel-caption">Badami Cave Temples, Badami</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      
+<!-- End Carousel Section -->
+
+<!-- client section -->
+
+  
+<!-- App Categories Section -->
+<!-- App Categories Section -->
+<section id="app-categories" class="container mt-5">
+  <h2 class="text-center mb-4">Explore Our Apps</h2>
+
+  <!-- First Row of Buttons -->
+  <div class="row">
+    <!-- Category 1: Food Delivery and Dining -->
+    <div class="col-md-4 mb-3">
+      <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#foodModal">Food Delivery and Dining</button>
+      <!-- Modal for Food Delivery and Dining -->
+      <div class="modal fade" id="foodModal" tabindex="-1" role="dialog" aria-labelledby="foodModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="foodModalLabel">Food Delivery and Dining</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <!-- App 1 -->
+                <div class="col-md-3 app-container">
+                  <a href="https://www.zomato.com/bangalore" target="_blank">
+                    <img src="images\zomato.png" class="img-fluid" alt="App 1">
+                    <h5 class="text-center mt-2"> Zomato</h5>
+                  </a>
+                </div>
+                <!-- App 2 -->
+                <div class="col-md-3 app-container">
+                  <a href="https://www.swiggy.com/"
+                     target="_blank">
+                    <img src="images\swiggy genie.png" class="img-fluid" alt="App 2">
+                    <h5 class="text-center mt-2">Swiggy</h5>
+                  </a>
+                </div>
+                <!-- App 3 -->
+                <div class="col-md-3 app-container">
+                  <a href="https://www.ubereats.com/" target="_blank">
+                    <img src="images\ubereats.png" class="img-fluid" alt="App 3">
+                    <h5 class="text-center mt-2">Uber Eats</h5>
+                  </a>
+                </div>
+                <!-- App 4 -->
+                <div class="col-md-3 app-container">
+                  <a href="https://box8.in/" target="_blank">
+                    <img src="images\box8.png" class="img-fluid" alt="App 4">
+                    <h5 class="text-center mt-2">Box8</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Transportation Section -->
+<div class="col-md-4 mb-3">
+  <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#transportationModal">Transportation</button>
+  <!-- Modal for Transportation -->
+  <div class="modal fade" id="transportationModal" tabindex="-1" role="dialog" aria-labelledby="transportationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="transportationModalLabel">Transportation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Transportation App 1 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.rapido.bike/" target="_blank">
+                <img src="images\rapido.png" class="img-fluid" alt="Transportation App 1">
+                <h5 class="text-center mt-2">Rapido</h5>
+              </a>
+            </div>
+            <!-- Transportation App 2 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.uber.com/in/en/" target="_blank">
+                <img src="images\uber.png" class="img-fluid" alt="Transportation App 2">
+                <h5 class="text-center mt-2">Uber</h5>
+              </a>
+            </div>
+            <!-- Add additional apps here -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.olacabs.com/" target="_blank">
+                <img src="images\ola.png" class="img-fluid" alt="Transportation App 2">
+                <h5 class="text-center mt-2">Ola</h5>
+              </a>
+            </div>
+            <div class="col-md-3 app-container">
+              <a href="https://www.meru.in/mobile/" target="_blank">
+                <img src="images\meru.png" class="img-fluid" alt="Transportation App 2">
+                <h5 class="text-center mt-2">Meru Cabs</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Local Services Section -->
+<div class="col-md-4 mb-3">
+  <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#localServicesModal">Deliverables</button>
+  <!-- Modal for Local Services -->
+  <div class="modal fade" id="localServicesModal" tabindex="-1" role="dialog" aria-labelledby="localServicesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="localServicesModalLabel">Deliverables</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Local Service App 1 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.zeptonow.com/"
+                 target="_blank">
+                <img src="images\zepto.png" class="img-fluid" alt="Local Service App 1">
+                <h5 class="text-center mt-2">Zepto</h5>
+              </a>
+            </div>
+            <!-- Local Service App 2 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.dunzo.com/bangalore" target="_blank">
+                <img src="images\dunzo.png" class="img-fluid" alt="Local Service App 2">
+                <h5 class="text-center mt-2">Dunzo</h5>
+              </a>
+            </div>
+            <!-- Add additional apps here -->
+            <div class="col-md-3 app-container">
+              <a href="https://blinkit.com/?utm_source=google&utm_medium=cpc&utm_campaign=Search_cy-IN_pb-Perf_a-All_o-All_c-Search_opt-CPO_ds-Brand-NA_ct-All_l_PanIndia_mpr-NA_ds2-NA_dt-20240301&utm_term=blinkit&location=9299054&location_interest=1007768&gad_source=1&gclid=Cj0KCQjw2a6wBhCVARIsABPeH1sujTxtPfPkdaG1bbFbFqhfZ39ue0h8SxvOcAtBnqzGgH8c3noqXQQaAo6NEALw_wcB" target="_blank">
+                <img src="images\blinkit.png" class="img-fluid" alt="Local Service App 2">
+                <h5 class="text-center mt-2">Blink It</h5>
+              </a>
+            </div>
+            <div class="col-md-3 app-container">
+              <a href="https://www.swiggy.com/swiggy-genie" target="_blank">
+                <img src="images\swiggy genie.png" class="img-fluid" alt="Local Service App 2">
+                <h5 class="text-center mt-2">Swiggy Genie</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Events and Bookings -->
+<div class="col-md-4 mb-3">
+  <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#accommodationModal">Events and Bookings</button>
+  <!-- Modal for Events and Bookings -->
+  <div class="modal fade" id="accommodationModal" tabindex="-1" role="dialog" aria-labelledby="accommodationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="accommodationModalLabel">Events and Bookings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Events and Bookings App 1 -->
+            <div class="col-md-3 app-container">
+              <a href="" target="_blank">
+                <img src="images\bookmyshow.png" class="img-fluid" alt="Accommodation App 1">
+                <h5 class="text-center mt-2">BookMyShow</h5>
+              </a>
+            </div>
+            <!--Events and Bookings 2 -->
+            <div class="col-md-3 app-container">
+              <a href="https://nearify.en.aptoide.com/app" target="_blank">
+                <img src="images\nearify.png" class="img-fluid" alt="Accommodation App 2">
+                <h5 class="text-center mt-2">Nearify</h5>
+              </a>
+            </div>
+                        <!-- Events and Bookings App 2 -->
+                        <div class="col-md-3 app-container">
+                          <a href="https://allevents.in/bangalore" target="_blank">
+                            <img src="images\all events.png" class="img-fluid" alt="Accommodation App 2">
+                            <h5 class="text-center mt-2">All Events</h5>
+                          </a>
+                        </div>            <!--Events and Bookings App 2 -->
+                        <div class="col-md-3 app-container">
+                          <a href="https://highape.com/bangalore" target="_blank">
+                            <img src="images\highape.png" class="img-fluid" alt="Accommodation App 2">
+                            <h5 class="text-center mt-2">HighApe</h5>
+                          </a>
+                        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Health and Safety -->
+<div class="col-md-4 mb-3">
+  <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#attractionsModal">Health and Safety</button>
+  <!-- Modal for Health and Safety -->
+  <div class="modal fade" id="attractionsModal" tabindex="-1" role="dialog" aria-labelledby="attractionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="attractionsModalLabel">Health and Safety</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Health and Safety App 1 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.practo.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand-search-practo-consult&sem=true&gclid=Cj0KCQjw2a6wBhCVARIsABPeH1tFJ1bEz7IE0e6VkxpXbRkVeZE57eI4OQdyXkA_FCg8mcekHDrLYlIaAiJQEALw_wcB" target="_blank">
+                <img src="images\practo.png" class="img-fluid" alt="Attraction App 1">
+                <h5 class="text-center mt-2">Practo</h5>
+              </a>
+            </div>
+            <!-- Health and Safety App 2 -->
+            <div class="col-md-3 app-container">
+              <a href="https://redcrosskarnataka.org/" target="_blank">
+                <img src="images\redcross.png" class="img-fluid" alt="Attraction App 2">
+                <h5 class="text-center mt-2">Red Cross</h5>
+              </a>
+            </div>
+            <div class="col-md-3 app-container">
+              <a href="https://ksp.karnataka.gov.in/english" target="_blank">
+                <img src="images\karnataka police.png" class="img-fluid" alt="Attraction App 2">
+                <h5 class="text-center mt-2">Karnataka Police</h5>
+              </a>
+            </div>
+            <div class="col-md-3 app-container">
+              <a href="https://aarogyasetu.gov.in/" target="_blank">
+                <img src="images\setu.png" class="img-fluid" alt="Attraction App 3">
+                <h5 class="text-center mt-2">Aarogya Setu</h5>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Accommodations Section -->
+<div class="col-md-4 mb-3">
+  <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#healthSafetyModal">Accommodations</button>
+  <!-- Modal for Accommodations -->
+  <div class="modal fade" id="healthSafetyModal" tabindex="-1" role="dialog" aria-labelledby="healthSafetyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="healthSafetyModalLabel">Accommodations</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <!-- Accommodations App 1 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.booking.com/" target="_blank">
+                <img src="images\booking.png" class="img-fluid" alt="Health App 1">
+                <h5 class="text-center mt-2">Booking</h5>
+              </a>
+            </div>
+            <!-- Accommodations App 2 -->
+            <div class="col-md-3 app-container">
+              <a href="https://www.makemytrip.com/flights/?cmp=SEM|D|DF|B|Brand|Brand-BrandExact_DT|B_M_Makemytrip_Search_Exact|Brand_Top_5_Exact|RSA|&s_kwcid=AL!1631!3!!e!!o!!%27makemytrip&ef_id=:G:s" target="_blank">
+                <img src="images\makemytrip.png" class="img-fluid" alt="Safety App 2">
+                <h5 class="text-center mt-2">MakeMyTrip</h5>
+              </a>
+            </div>
+             <!-- Accommodations App 2 -->
+             <div class="col-md-3 app-container">
+              <a href="https://www.airbnb.co.in/a/discover/?account_id=31003615&campaign_id=303117718&ad_id=80951624440020&ad_group_id=1295224714906336&keyword_id=kwd-80951555865320:loc-90&device=c&c=.pi2.pk303117718_1295224714906336&ghost=true&msclkid=a8a5826233a711b81ddee46eec95fccc&utm_source=bing&utm_medium=cpc&utm_campaign=IND%3ADTM%3ASRC%3ABRD%2BAirbnb%5BEXACT%5D&utm_term=airbnb&utm_content=Airbnb%3A%2BExact" target="_blank">
+                <img src="images\airbnb.png" class="img-fluid" alt="Safety App 2">
+                <h5 class="text-center mt-2">AirBnB</h5>
+              </a>
+            </div>
+             <!-- Accommodations App 2 -->
+             <div class="col-md-3 app-container">
+              <a href="https://www.goibibo.com/?utm_source=bing&utm_medium=cpc&utm_campaign=IF-Brand-Ex_Ind&utm_adgroup=IF-Brand-Ex_Ind&utm_term=!SEM!IF!G!Brand-Ex_Ind!RSA!662302050!1329311850401391!!e!goibibo.com!c!&msclkid=55182cdfd18c1e76c4dd4ad30e08e4f8" target="_blank">
+                <img src="images\goibibo.png" class="img-fluid" alt="Safety App 2">
+                <h5 class="text-center mt-2">Goibibo</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- End App Categories Section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="info_logo">
+        <h2>
+          Karnataka Sanchari
+        </h2>
+      </div>
+      <div class="info_contact">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/location.png" alt="">
+              <span>
+                Kassavanahali,Bengaluru
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/call.png" alt="">
+              <span>
+                Call : +91-6364151707
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/mail.png" alt="">
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <div class="info_form">
+            <form action="">
+              <input type="text" placeholder="Enter your email">
+              <button>
+                Contact us 
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="images/facebook-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/twitter-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved. Designed by
+      <a href="https://html.design/">Anirudh S, Aayushi Jeeban Tripathy and Utkarsh Tiwari</a>
+    </p>
+  </section>
+  <!-- footer section -->
+<!-- Bootstrap and jQuery scripts should be included only once -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  window.embeddedChatbotConfig = {
+  chatbotId: "DZrY9UGtfrv2CANAFxstv",
+  domain: "www.chatbase.co"
+  }
+  </script>
+  <script
+  src="https://www.chatbase.co/embed.min.js"
+  chatbotId="DZrY9UGtfrv2CANAFxstv"
+  domain="www.chatbase.co"
+  defer>
+  </script>
+<script type="text/javascript">
+  // Function to type the itinerary letter by letter
+  function typeItinerary(itinerary) {
+    let i = 0;
+    const speed = 50; // Speed of typing, in milliseconds
+    const element = document.getElementById('itinerary-text');
+    element.textContent = ''; // Clear previous text
+
+    function typeWriter() {
+      if (i < itinerary.length) {
+        element.textContent += itinerary.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    
+    // Start typing
+    typeWriter();
+  }
+
+  // Event listener for the "Generate your customized itinerary" button
+  document.getElementById('generate-itinerary').addEventListener('click', function() {
+    const itinerary = `Bengaluru\n\nVisit so and so...\nSo and so..\n`;
+    document.getElementById('itinerary-display').style.display = 'block'; // Show the container
+    typeItinerary(itinerary);
+  });
+
+  // Function to update the current year in the footer
+  document.getElementById('displayYear').textContent = new Date().getFullYear();
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Initialize the carousel with an option to cycle through slides every 3 seconds
+    $('#carouselExample').carousel({
+      interval: 3000
+    });
+
+    // Pause the carousel when hovering over a carousel-landmark, and show the caption
+    $('.carousel-landmark').hover(
+      function() {
+        // On mouse enter
+        $(this).find('.carousel-caption').fadeIn(300); // Show the caption
+        $('#carouselExample').carousel('pause'); // Pause the carousel
+      },
+      function() {
+        // On mouse leave
+        $(this).find('.carousel-caption').fadeOut(300); // Hide the caption
+        $('#carouselExample').carousel('cycle'); // Resume the carousel cycling
+      }
+    );
+
+    // Modal dynamic content loading
+    $('.btn-category').click(function() {
+      var category = $(this).data('category'); // Assumes you've added data-category attributes to your buttons
+      $('#appModal').modal('show'); // Opens the modal with the id 'appModal'
+
+      loadCategoryApps(category);
+    });
+
+    function loadCategoryApps(category) {
+      // Add your apps data or fetch it from an API/server
+      var apps = {
+        'Food Delivery and Dining': [
+          // Define your app details here
+        ],
+        'Transportation': [
+          // Define your app details here
+        ],
+        // Add more categories with apps as needed
+      };
+
+      // Retrieve the specific apps for the selected category
+      var selectedApps = apps[category] || [];
+
+      // Clear previous content
+      var modalBody = $('#appModal .modal-body');
+      modalBody.empty();
+
+      // Populate the modal with new content based on the selected category
+      selectedApps.forEach(function(app) {
+        var appElement = $('<div>', { class: 'app-entry' });
+        appElement.append($('<img>', { src: app.imageUrl, alt: app.name, class: 'app-logo' }));
+        appElement.append($('<a>', { href: app.appUrl, text: app.name, class: 'app-link', target: '_blank' }));
+        modalBody.append(appElement);
+      });
+    }
+  });
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDNZffbW7SjBmHGMVpHSipPz_5G3jFn9r4",
+    authDomain: "discoverit-d38b1.firebaseapp.com",
+    projectId: "discoverit-d38b1",
+    storageBucket: "discoverit-d38b1.appspot.com",
+    messagingSenderId: "464506288095",
+    appId: "1:464506288095:web:d65682612aea62793f766a"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+<script>
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  const profilePicElement = document.getElementById('profile-pic');
+
+  if (user) {
+    // User is signed in
+    const uid = user.uid;
+    const photoURL = user.photoURL;
+
+    // Update the profile picture
+    if (photoURL) {
+      profilePicElement.src = photoURL;
+      profilePicElement.style.display = 'block';
+    } else {
+      // If no photo URL is available, you can display a default image or hide the element
+      profilePicElement.style.display = 'none';
+    }
+  } else {
+    // User is signed out
+    profilePicElement.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

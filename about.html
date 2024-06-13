@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Karnataka Sanchari</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tips - Karnataka Sanchari</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="icon" href="logo1.png" type="image/png">
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #040000;
+      background-color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #252525;
+      width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ffffff !important;
+      font-size: 18px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #555 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    .header-section {
+      background-color: #252525;
+      padding: 10px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .header-section h1 {
+      font-size: 2.5rem;
+      color: #ffa500;
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    .nav_section .navbar-nav .nav-link {
+      font-size: 18px;
+    }
+
+    .nav_section .custom_nav2 .custom_nav-container {
+      padding: 10px 0;
+      background-color: #252525;
+      border-radius: 5px;
+    }
+
+    .nav_section .custom_nav2 .custom_nav-container .navbar-nav .nav-item .nav-link {
+      padding: 30px 100px;
+      font-size: 26px;
+      color: #ffffff;
+      text-align: left;
+      display: inline-flex;
+    }
+
+    .nav_section .custom_nav2 #navbarSupportedContent {
+      justify-content: center;
+    }
+
+    .nav_section .custom_nav-container .nav_search-btn {
+      background-image: url(../images/search-icon.png);
+      background-size: 18px;
+      background-repeat: no-repeat;
+      width: 35px;
+      height: 35px;
+      padding: 0;
+      border: none;
+      margin: 0 40px 0 15px;
+      background-position: center;
+    }
+
+    .about-section {
+      padding: 50px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #ffffff;
+    }
+
+    .about-section img {
+      max-width: 40%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section .description {
+      max-width: 50%;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .testimonials-heading {
+      background-color: #ffffff;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .testimonials-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .reviews-section {
+      background-color: #ffffff;
+      padding: 50px 0 100px; /* Increased bottom padding */
+      text-align: center;
+    }
+
+    .slider-wrap {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .slider-item {
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f8f8; /* Slightly darker shade */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position:absolute;
+      opacity: 0;
+      z-index: 0;
+      box-shadow: 0 4px 9px #f1f1f4;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .slider-item.active {
+      opacity: 1;
+      z-index: 1;
+      transform: translateY(0);
+    }
+
+    .slider-item.previous,
+    .slider-item.next {
+      opacity: 0.5;
+      z-index: 0;
+      transform: translateY(100px);
+    }
+
+    .animation-card_image {
+      max-width: 60px;
+      max-height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 9px rgba(241, 241, 244, 0.72);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .animation-card_image img {
+      width: 53px;
+      height: 53px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .animation-card_content {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      color: black;
+    }
+
+    .animation-card_content_title {
+      color: #4a4545;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.18px;
+      line-height: 24px;
+      margin: 0;
+    }
+
+    .animation-card_content_description {
+      color: #696d74;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: normal;
+      line-height: 24px;
+      margin: 10px 0;
+    }
+
+    .animation-card_content_city {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #696d74;
+    }
+
+    .founders-section {
+      background-color: #ffffff;
+      padding: 50px 0;
+      text-align: center;
+      color: #040000;
+      margin-top: 150px; /* Increased top margin */
+    }
+
+    .founders-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .founders-section .founder {
+      position: relative;
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    .founders-section img {
+      border-radius: 10px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .founders-section .founder:hover img {
+      transform: scale(1.1);
+    }
+
+    .founders-section .founder .details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 10px 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .founders-section .founder:hover .details {
+      opacity: 1;
+    }
+
+    .footer-section {
+      background-color: #252525;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-section a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #ffa500;
+    }
+
+    .footer-section .contact-info {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .footer-section .contact-info div {
+      text-align: left;
+    }
+
+    .footer-section .social-icons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-section .social-icons a {
+      margin: 0 10px;
+    }
+
+    .footer-section .social-icons img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: bold;">About Us</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Tips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <div class="about-section">
+    <img src="sketch-removebg-preview.png" alt="City Sketch">
+    <div class="description">
+      <p>Welcome to Karnataka Sanchari, your ultimate guide to exploring the beautiful state of Karnataka. Our mission is to prevent tourist scams and make travel free and seamless for travelers, especially foreigners. We aim to replace traditional tour guides with advanced technology, ensuring a safe and enjoyable travel experience.</p>
+    </div>
+  </div>
+
+  <!-- Testimonials Heading -->
+  <div class="testimonials-heading">
+    <h2>Testimonials</h2>
+  </div>
+
+  <!-- Reviews Section -->
+  <div class="reviews-section">
+    <div class="slider-wrap">
+      <div id="card-slider" class="slider">
+        <div class="slider-item active">
+          <div class="animation-card_image">
+            <img src="kohli.png" alt="Reviewer 1">
+          </div>
+          <div class="animation-card_content">
+            <h4 class="animation-card_content_title">Virat Kohli</h4>
+            <p class="animation-card_content_description">Karnataka Sanchari made my trip to Karnataka effortless and enjoyable. The app's guidance was spot-on, and I never felt lost or unsafe.</p>
+          </div>
+        </div>
+        <div class="slider-item next">
+          <div class="animation-card_image">
+            <img src="dhoni.png" alt="Reviewer 2">
+          </div>
+          <div class="animation-card_content">
+            <h4 class="animation-card_content_title">M.S Dhoni</h4>
+            <p class="animation-card_content_description">Thanks to Karnataka Sanchari, I avoided all the common tourist traps. The recommendations were fantastic, and I saved a lot of time and money.</p>
+          </div>
+        </div>
+        <div class="slider-item previous">
+          <div class="animation-card_image">
+            <img src="gill.png" alt="Reviewer 3">
+          </div>
+          <div class="animation-card_content">
+            <h4 class="animation-card_content_title">Shubman Gill</h4>
+            <p class="animation-card_content_description">Highly recommend this service! As a solo traveler, I felt secure and well-informed throughout my journey. The app is a game-changer for tourists.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Founders Section -->
+  <div class="founders-section">
+    <h2>Founders</h2>
+    <div class="founder">
+      <img src="as.png" alt="Founder 1">
+      <div class="details">
+        <p>Anirudh S</p>
+        <p>Frontend Developer</p>
+      </div>
+    </div>
+    <div class="founder">
+      <img src="Screenshot 2024-05-23 013438.jpg" alt="Founder 2">
+      <div class="details">
+        <p>Aayushi J. Tripathy</p>
+        <p>Backend Developer</p>
+      </div>
+    </div>
+    <div class="founder">
+      <img src="ut.png" alt="Founder 3">
+      <div class="details">
+        <p>Utkarsh Tiwari</p>
+        <p>Algorithm Curator/Tester</p>
+      </div>
+    </div>
+    <div class="founder">
+      <img src="rsb.png" alt="Mentor">
+      <div class="details">
+        <p>Roshni M Balakrishnan</p>
+        <p>Mentor</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="info_logo">
+        <h2>Karnataka Sanchari</h2>
+      </div>
+      <div class="info_contact">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/location.png" alt="">
+              <span>Kassavanahali, Bengaluru</span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/call.png" alt="">
+              <span>Call: +91-6364151707</span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/mail.png" alt="">
+              <span>aseb@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <div class="info_form">
+            <form action="">
+              <input type="text" placeholder="Enter your email">
+              <button>Contact us</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="images/facebook-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/twitter-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script>
+    var cards = $('#card-slider .slider-item').toArray();
+    function updateClasses() {
+      cards.forEach((card, index) => {
+        card.classList.remove('previous', 'active', 'next');
+        if (index === 0) {
+          card.classList.add('previous');
+        } else if (index === 1) {
+          card.classList.add('active');
+        } else if (index === 2) {
+          card.classList.add('next');
+        }
+      });
+    }
+    function startAnim(array) {
+      gsap.fromTo(array[0], 0.5, { x: 0, y: 0, opacity: 0.75 }, { x: 0, y: -120, opacity: 0, zIndex: 0, delay: 0.03, ease: "power2.inOut", onComplete: sortArray(array) });
+      gsap.fromTo(array[1], 0.5, { x: 79, y: 125, opacity: 1, zIndex: 1 }, { x: 0, y: 0, opacity: 0.75, zIndex: 0, boxShadow: '-5px 8px 8px 0 rgba(82,89,129,0.05)', ease: "power2.inOut" });
+      gsap.to(array[2], 0.5, { bezier: [{ x: 0, y: 250 }, { x: 65, y: 200 }, { x: 79, y: 125 }], boxShadow: '-5px 8px 8px 0 rgba(82,89,129,0.05)', zIndex: 1, opacity: 1, ease: "power2.inOut" });
+      gsap.fromTo(array[3], 0.5, { x: 0, y: 400, opacity: 0, zIndex: 0 }, { x: 0, y: 250, opacity: 0.75, zIndex: 0, ease: "power2.inOut" });
+    }
+    function sortArray(array) {
+      clearTimeout(delay);
+      var delay = setTimeout(function () {
+        var firstElem = array.shift();
+        array.push(firstElem);
+        updateClasses();
+        return startAnim(array);
+      }, 3000);
+    }
+    if (cards.length >= 3) {
+      updateClasses();
+      startAnim(cards);
+    } else {
+      $('#card-slider').append('<p>Sorry, carousel should contain more than 3 slides</p>');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tips - Karnataka Sanchari</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="icon" href="logo1.png" type="image/png">
+  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #252525;
+      margin-bottom: 0;
+    }
+    .navbar-nav .nav-link {
+      color: #ffffff !important;
+      font-size: 18px;
+    }
+    .navbar-nav .nav-link:hover {
+      background-color: #555 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .tips-section {
+      padding: 0;
+      text-align: center;
+      background-color: #ffffff;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .filter-generate {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .filter-generate select {
+      padding: 10px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      animation: bounceIn 1s ease-in-out;
+    }
+    .filter-generate button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      animation: bounceIn 1s ease-in-out;
+    }
+    .filter-generate button:hover {
+      background-color: #555;
+    }
+    .how-to-use-container {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: slideInUp 1s ease-in-out;
+    }
+    .how-to-use {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .step-box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: zoomIn 1s ease-in-out;
+      transition: transform 0.3s ease-in-out;
+    }
+    .step-box:hover {
+      transform: scale(1.1);
+    }
+    .dynamic-content {
+      display: none;
+      margin-top: 50px;
+      margin-bottom: 50px; /* Added for gap */
+      animation: fadeIn 1s ease-in-out;
+    }
+    .city-image {
+      width: 50%; /* Adjust the width to make the images smaller */
+      max-width: 300px; /* Set a maximum width for uniformity */
+      height: auto;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .tips-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tips-list li {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      animation: fadeInUp 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: bold;">Tips</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Tips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Tips Section -->
+  <div class="tips-section">
+    <div class="video-container">
+      <video autoplay loop muted>
+        <source src="854190-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="filter-generate">
+        <select id="city-filter">
+          <option value="">Select City</option>
+          <option value="Bengaluru">Bengaluru</option>
+          <option value="Mysuru">Mysuru</option>
+          <option value="Shivamogga">Shivamogga</option>
+          <option value="Hassan">Hassan</option>
+          <option value="Mandya">Mandya</option>
+          <option value="Bellary">Bellary</option>
+          <option value="Hampi">Hampi</option>
+          <option value="Udupi">Udupi</option>
+          <option value="Mangalore">Mangalore</option>
+          <option value="Dharwad">Dharwad</option>
+          <option value="Kalaburgi">Kalaburgi</option>
+          <option value="Karwar">Karwar</option>
+          <option value="Chikmagaluru">Chikmagaluru</option>
+          <option value="Gadag">Gadag</option>
+        </select>
+        <button id="generate-button">Generate</button>
+      </div>
+    </div>
+    <div class="how-to-use-container">
+      <h3 class="animate__animated animate__fadeInDown">How To Use?</h3>
+      <div class="how-to-use">
+        <div class="step-box animate__animated animate__zoomIn">
+          <h4>Step 1</h4>
+          <p>Select a city using the filter above.</p>
+        </div>
+        <div class="step-box animate__animated animate__zoomIn" style="animation-delay: 0.2s;">
+          <h4>Step 2</h4>
+          <p>Click the "Generate" button to see tips for the selected city.</p>
+        </div>
+        <div class="step-box animate__animated animate__zoomIn" style="animation-delay: 0.4s;">
+          <h4>Step 3</h4>
+          <p>Enjoy your trip with our guided tips and avoid common tourist traps.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-content animate__animated animate__fadeIn">
+      <h3 id="city-title"></h3>
+      <img id="city-image" src="" alt="City Image" class="city-image">
+      <ul id="city-tips" class="tips-list">
+        <!-- Tips will be dynamically generated here -->
+      </ul>
+    </div>
+  </div>
+  <!-- Information Section -->
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="info_logo">
+        <h2>Karnataka Sanchari</h2>
+      </div>
+      <div class="info_contact">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/location.png" alt="">
+              <span>Kassavanahali, Bengaluru</span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/call.png" alt="">
+              <span>Call: +91-6364151707</span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="">
+              <img src="images/mail.png" alt="">
+              <span>aseb@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <div class="info_form">
+            <form action="">
+              <input type="text" placeholder="Enter your email">
+              <button>Contact us</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="images/facebook-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/twitter-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.getElementById('generate-button').addEventListener('click', function () {
+      const city = document.getElementById('city-filter').value;
+      document.getElementById('city-title').innerText = city;
+
+      const cityImages = {
+        'Bengaluru': 'bengaluru.jpeg',
+        'Mysuru': 'mysuru.jpeg',
+        'Shivamogga': 'shivaa.jpeg',
+        'Hassan': 'hassan.png',
+        'Mandya': 'mandya.jpeg',
+        'Bellary': 'bellary.jpeg',
+        'Hampi': 'HAMPI.jpg',
+        'Udupi': 'udupi.webp',
+        'Mangalore': 'mangalore.jpg',
+        'Dharwad': 'dharwad.jpeg',
+        'Kalaburgi': 'kalaburgi.webp',
+        'Karwar': 'karwar.jpeg',
+        'Chikmagaluru': 'chikmangaluru.jpeg',
+        'Gadag': 'gadag.jpg'
+      };
+
+      document.getElementById('city-image').src = cityImages[city] || 'example-city.jpg';
+
+      const tips = {
+        'Bengaluru': [
+        'Explore the vibrant markets of Commercial Street for unique souvenirs.',
+        'Visit the serene Cubbon Park in the early morning for a peaceful start to your day.',
+        'Check out the Bangalore Palace for a glimpse into the grandeur of royal architecture.',
+        'Enjoy the bustling nightlife at one of the many pubs on MG Road.',
+        'Be cautious of pickpockets, especially in crowded markets.'
+    ],
+    'Mysuru': [
+        'Don\'t miss the majestic Mysore Palace, especially during the Dasara festival.',
+        'Try the famous Mysore Pak from a local sweet shop.',
+        'Visit the Chamundi Hills early in the morning for a scenic view of the city.',
+        'Explore the colorful Devaraja Market to experience local shopping.',
+        'Respect the local culture by dressing modestly, especially during your temple visits.'
+    ],
+    'Shivamogga': [
+        'Visit the Jog Falls, India\'s second-highest plunge waterfall, especially in the monsoon.',
+        'Explore the biodiversity of Agumbe, known as the "Cherrapunji of the South."',
+        'Take a safari in the Bhadra Wildlife Sanctuary to spot tigers and leopards.',
+        'Enjoy a tranquil boat ride on the Sharavathi River.',
+        'Be mindful of the natural environment and dispose of waste properly when visiting eco-sensitive areas.'
+    ],
+    'Hassan': [
+        'Explore the architectural marvels of the Hoysala temples at Belur and Halebid.',
+        'Visit the serene Gorur Dam and enjoy a picnic by the reservoir.',
+        'Take a trek to the summit of Kumara Parvatha for breathtaking views.',
+        'Discover the history of the region at the Hassan District Museum.',
+        'Ensure you have permission before taking photographs inside temples or other sacred sites.'
+    ],
+    'Mandya': [
+        'Visit the Krishnaraja Sagar Dam and the adjoining Brindavan Gardens, especially during the evening for the musical fountain show.',
+        'Explore the ancient temples of Melukote in the Pandavapura taluk.',
+        'Enjoy bird watching at the Ranganathittu Bird Sanctuary.',
+        'Sample sugarcane juice freshly made at one of the local mills.',
+        'Stay hydrated and carry water as you explore, especially during the hot months.'
+    ],
+    'Bellary': [
+        'Explore the historical site of Hampi, a UNESCO World Heritage Site, with its fascinating ruins.',
+        'Visit the Bellary Fort for a panoramic view of the city.',
+        'Take a day trip to the Daroji Sloth Bear Sanctuary.',
+        'Experience the local culture by attending the Karthika Deepotsava, a light festival held in November.',
+        'Be respectful of the local customs and ask before taking photos of people or their homes.'
+    ],
+    'Hampi': [
+        'Spend time exploring the ruins of the Vijayanagara Empire at Hampi.',
+        'Climb Matanga Hill for a stunning sunrise view over the city\'s ancient landscape.',
+        'Relax by the banks of the Tungabhadra River or take a coracle ride during sunset.',
+        'Visit the Virupaksha Temple, an active temple that is part of the Group of Monuments at Hampi.',
+        'Avoid touching or climbing on the ancient ruins to help preserve them for future generations.'
+    ],
+    'Udupi': [
+        'Visit the famous Sri Krishna Temple, known for its unique idol and car festivals.',
+        'Enjoy pristine beaches like Malpe and St. Mary\'s Island for a day out in the sun.',
+        'Try the traditional Udupi cuisine, famous for its vegetarian dishes and dosas.',
+        'Explore the Manipal End Point for scenic views of the Western Ghats.',
+        'Respect the sanctity of religious sites; photography may not be permitted inside temples.'
+    ],
+    'Mangalore': [
+        'Visit the Panambur Beach for jet skiing, dolphin viewing, and sunbathing.',
+        'Explore the Pilikula Nisargadhama for a day of fun in nature and a visit to the zoo.',
+        'Taste the variety of seafood dishes, including the local fish curry.',
+        'Attend the Mangalore Dasara at the Kudroli Temple for its spectacular celebrations.',
+        'Be cautious while swimming; follow all safety signs and flags on the beaches.'
+    ],
+    'Dharwad': [
+        'Visit the Dharwad Pedha shop to try the famous sweet made from milk.',
+        'Explore the Unkal Lake for a peaceful evening walk or a boat ride.',
+        'Attend the cultural music festival held in memory of the renowned singer Bhimsen Joshi.',
+        'Discover the Regional Science Centre for educational activities and the planetarium.',
+        'Be aware of monkeys that might snatch food if you are eating in open areas.'
+    ],
+    'Kalaburgi': [
+        'Explore the historic Gulbarga Fort with its impressive architecture and grandeur.',
+        'Visit the Sharana Basaveshwara Temple and learn about its cultural significance.',
+        'Enjoy local cuisine like Jolada Roti, which is unique to this region.',
+        'Be cautious during summer as temperatures can be extremely high.'
+    ],
+    'Karwar': [
+        'Walk along the picturesque Karwar Beach, known for its calm waters and scenic views.',
+        'Visit the Sadashivgad Fort for a slice of history and panoramic views of the Arabian Sea.',
+        'Try the fresh seafood, especially fish curry and rice, a local delicacy.',
+        'Respect the coastal ecosystem by avoiding littering on the beaches.'
+    ],
+    'Chikmagaluru': [
+        'Trek to Mullayanagiri, the highest peak in Karnataka, for stunning views and adventure.',
+        'Visit coffee plantations and participate in coffee tasting sessions.',
+        'Explore the Bhadra Wildlife Sanctuary, home to diverse fauna including tigers and elephants.',
+        'Be prepared for sudden changes in weather, especially if youre trekking or exploring in remote areas.'
+    ],
+    'Gadag': [
+        'Discover the architectural beauty of Trikuteshwara Temple, known for its ornate carvings.',
+        'Visit the Veeranarayana Temple, a fine example of Chalukyan architecture.',
+        'Attend local festivals to experience the vibrant culture and traditions of Gadag.',
+        'Stay hydrated and protect yourself from the sun, especially during outdoor activities.'
+    ]
+};
+
+
+
+      const tipsContainer = document.getElementById('city-tips');
+      tipsContainer.innerHTML = '';
+      if (tips[city]) {
+        tips[city].forEach(tip => {
+          const tipElement = document.createElement('li');
+          tipElement.innerText = tip;
+          tipsContainer.appendChild(tipElement);
+        });
+      }
+
+      document.querySelector('.how-to-use-container').style.display = 'none';
+      document.querySelector('.dynamic-content').style.display = 'block';
+    });
+  </script>
+  
+</body>
+</html>
