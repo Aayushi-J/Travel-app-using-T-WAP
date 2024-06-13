@@ -1,0 +1,1157 @@
+body {
+  font-family: "Poppins", sans-serif;
+  color: #040000;
+  background-color: #ffffff;
+}
+/* Slider video and overlay text styling */
+/* Containing block for video */
+
+.slider_section .overlay_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* White text color */
+  text-align: center;
+  z-index: 10; /* Make sure the text is above the video */
+}
+
+.slider_section .overlay_text h1 {
+  font-size: 2.5rem;
+  color: #ffa500; /* Adjust the color to fit your branding */
+  text-shadow: 2px 2px 4px #000000; /* Optional: Text shadow for better readability */
+}
+
+.slider_section .video-box {
+  position: relative;
+  overflow: hidden;
+  max-height: 85vh; /* Increase this value to allow for more height */
+  min-height: 400px; /* This sets a minimum height for the video */
+}
+
+/* Video element */
+.slider_section .video-box video {
+  width: 100%;
+  height: 100%; /* This will take the full height of the container */
+  object-fit: cover; /* This will cover the entire area without stretching */
+}
+
+/* Video container */
+.video-container {
+  position: relative;
+  width: 100%; /* Adjust this to '100%' so it fills the width of its parent */
+  height: 30vh; /* Control the height of the container */
+  overflow: hidden;
+}
+
+/* Responsive video that fills the width */
+.video-container video {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Improved overlay text style */
+.overlay_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffcc00; /* Gold color for text, you can change to white if preferred */
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  z-index: 2; /* Make sure it's above the video */
+}
+
+/* Make sure the video keeps looping */
+video {
+  loop: true;
+}
+
+/* Add your media queries for responsive text sizing */
+@media (max-width: 768px) {
+  .overlay_text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .overlay_text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Carousel inner and grid system */
+.carousel-inner .row {
+  width: 100%; /* 100% * number of items per slide */
+  margin: 0;
+}
+
+.carousel-inner .col-lg-4 {
+  float: left;
+  width: 25%/* Width should be 100% divided by the number of images you want per slide */
+  position: relative; /* Required for caption positioning */
+  padding: 0 5px; /* Optional: if you want padding between items */
+}
+
+/* Carousel item active states to show 3 items */
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: flex; /* Use flex to make the items align properly */
+}
+
+/* Adjust the transition for when the carousel slides */
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+  transform: translateX(0);
+}
+
+.carousel-item-left.active,
+.carousel-item-right.active {
+  transform: translateX(-33.33333%); /* Adjust the translateX to -100% divided by the number of items */
+}
+
+/* Carousel images */
+.carousel-item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px; /* Slightly rounded edges for images */
+}
+
+/* Carousel captions, hidden by default and shown on hover */
+/* Carousel captions, initially transparent and smoothly transitioning */
+.carousel-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Move up a bit */
+  background: rgba(0, 0, 0, 0.7); /* Darker background for readability */
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Start with captions invisible */
+  visibility: hidden; /* Hide captions to prevent accidental interaction */
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease; /* Smooth transition for fade and movement */
+  color: white; /* Make sure the text is readable on the dark background */
+}
+
+/* Show captions on hover with a fade-in effect and slight upward movement */
+.carousel-landmark:hover .carousel-caption {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Return to original position */
+}
+
+
+/* Show captions on hover */
+.carousel-landmark:hover .carousel-caption {
+  display: block;
+}
+
+/* Ensure that the controls are always above the images */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 4;
+}
+/* Style for Famous Landmarks Title */
+.container .text-center {
+  margin-top: 50px; /* Space above the title */
+  margin-bottom: 50px; /* Space below the title */
+  font-size: 2em; /* Size of the title text */
+  font-weight: bold; /* Make the title text bold */
+}
+
+/* Additional media queries if needed for responsiveness */
+@media (max-width: 768px) {
+  .carousel-inner .col-lg-4 {
+    width: 50%;
+    max-width: none;
+  }
+
+  .carousel-item-left.active,
+  .carousel-item-right.active {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-inner .col-lg-4 {
+    width: 100%;
+    max-width: none;
+  }
+
+  .carousel-item-left.active,
+  .carousel-item-right.active {
+    transform: translateX(-100%);
+  }
+}
+
+
+.layout_padding {
+  padding: 90px 0;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 90px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+
+/*header section*/
+.sub_page .brand_box {
+  position: relative;
+  background-image: url(../images/slider-img.jpg);
+  padding: 45px 0;
+}
+
+.sub_page .nav_section {
+  margin-top: 0;
+  background-color: #252525;
+}
+
+.brand_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brand_box .navbar-brand span {
+  font-size: 38px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: initial;
+}
+
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.container {
+  width: 100%; /* Or you can set a max-width if you want it to be less than full width */
+  padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+#forgot-password {
+    background-color: transparent; /* To make it different from the Sign up button */
+    color: #000; /* Adjust the text color as needed */
+    border: none; /* Remove border if it's not needed */
+    text-decoration: underline; /* To indicate it's clickable */
+    opacity: 0.8; /* Optional style */
+    font-size: 0.8rem; /* Smaller font size */
+}
+
+#forgot-password:hover {
+    opacity: 1; /* Change opacity on hover for visual feedback */
+}
+
+
+.custom_nav-container {
+  z-index: 99999;
+  padding: 15px 0;
+}
+
+.custom_nav-container .navbar-toggler {
+  outline: none;
+}
+
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+  background-image: url(../images/menu.png);
+  background-size: 42px;
+}
+
+.btn:hover {
+  background-color: #ffa500; /* Lighter orange on hover */
+  color: #000000; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly increase button size on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.custom_nav-container .nav_search-btn {
+  margin: auto;
+}
+
+/*end header section*/
+/* slider section */
+.slider_section div#carouselExampleControls {
+  overflow: hidden;
+}
+
+.slider_section .img-box img {
+  width: 100%;
+  height: 850px; 
+}
+
+.slider_section .carousel-control-prev,
+.slider_section .carousel-control-next {
+  width: 90px;
+  height: 90px;
+  background-color: #252525;
+  opacity: 1;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+.slider_section .carousel-control-prev:hover,
+.slider_section .carousel-control-next:hover {
+  opacity: 0.9;
+}
+
+.slider_section .carousel-control-prev {
+  border-radius: 0 100% 100% 0;
+  background-image: url(../images/prev.png);
+  left: -50px;
+  background-position: 58px center;
+}
+
+.slider_section .carousel-control-next {
+  border-radius: 100% 0 0 100%;
+  background-image: url(../images/next.png);
+  right: -45px;
+  background-position: 20px center;
+}
+
+/* end slider section */
+.nav_section {
+  margin-top: -32px;
+}
+/* Navigation bar link style */
+.nav_section .navbar-nav .nav-link {
+  font-size: 18px; /* Set your desired font size */
+  /* Add other styles if necessary */
+  &:hover {
+    background-color: #555; 
+    color: #ffffff; 
+    text-decoration: none; 
+  }
+}
+
+.nav_section .custom_nav2 .custom_nav-container {
+  padding: 10px 0;
+  background-color: #252525;
+  border-radius: 5px;
+}
+
+.nav_section .custom_nav2 .custom_nav-container .navbar-nav .nav-item .nav-link {
+  padding: 10px 90px; /* Reduced padding */
+  font-size: 26px; /* Adjusted font size */
+  color: #ffffff;
+  text-align: left;
+display: inline-flex; /* Use inline-flex to allow the container to fit the content */
+  margin: left; /* This will center the nav-items if the container div is full width */
+}
+
+.nav_section .custom_nav2 #navbarSupportedContent {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav_section .custom_nav-container .nav_search-btn {
+  background-image: url(../images/search-icon.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  margin: 0 40px 0 15px;
+  background-position: center;
+}
+/* Button Hover Effect */
+.btn-primary:hover {
+  background-color: #007bff; /* Darker shade of blue for hover */
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Shadow for depth */
+  color: #ffffff; /* Ensure text is white */
+}
+
+/* Rounded Buttons for a softer look */
+.btn-primary {
+  border-radius: 20px; /* Softer edges */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+/* Modal Content Customization */
+.modal-content {
+  border-radius: 20px; /* Consistent rounded edges */
+}
+
+.modal-header,
+.modal-body {
+  padding: 20px; /* More space inside modal sections */
+}
+/* This will blur the background when the modal is active */
+.modal-backdrop.show {
+  opacity: 0.5 !important; /* Adjust transparency */
+  backdrop-filter: blur(10px); /* The actual blur effect */
+}
+
+#app-categories {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+#app-categories h2 {
+  margin-bottom: 3rem;
+  color: #333; /* Or any color that fits your theme */
+}
+
+#app-categories .btn {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  margin: 0.5rem;
+  border-radius: 20px; /* Rounded edges for buttons */
+  color: #fff;
+  background-color: #007bff; /* Bootstrap primary color, change as needed */
+  transition: background-color 0.3s ease;
+}
+
+#app-categories .btn:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* Ensuring all buttons have the same width */
+#app-categories .btn:not(:first-child) {
+  width: calc(33.33% - 1rem); /* Adjust the division based on how many buttons per row */
+}
+
+#app-categories .modal-dialog {
+  max-width: 80%; /* Making modal a bit wider */
+}
+
+/* Styling for app details inside the modal */
+#app-categories .app-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc; /* Separation line between apps */
+}
+
+#app-categories .app-details:last-child {
+  border-bottom: none;
+}
+
+#app-categories .app-details img {
+  max-width: 50px; /* Logo size, adjust as needed */
+  margin-right: 1rem;
+}
+
+#app-categories .app-details h5 {
+  margin-bottom: 0;
+}
+
+/* Backdrop styling for when modal is active */
+.modal-backdrop.show {
+  opacity: 0.8; /* Darken the backdrop a bit more to focus on the modal */
+}
+
+/* This is to style the modal pop-up */
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* This will blur the background when the modal is active */
+.modal-backdrop.show {
+  opacity: 0.9 !important; /* Adjust transparency */
+  backdrop-filter: blur(5px);
+}
+
+
+.shop_section .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.shop_section .box .detail-box h2 {
+  font-weight: bold;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.shop_section .box .detail-box p {
+  margin-bottom: 0;
+}
+
+.shop_section .box .img-box img {
+  max-width: 100%;
+}
+
+.shop_section .box .btn-box {
+  margin-top: 25px;
+}
+
+.shop_section .box .btn-box a {
+  display: inline-block;
+  padding: 8px 40px;
+  background-color: #313131;
+  border: 1px solid #313131;
+  color: #ffffff;
+}
+
+.shop_section .box .btn-box a:hover {
+  background-color: transparent;
+  color: #313131;
+}
+
+.about_section .img-box {
+  padding: 35px 0;
+  background-color: #ececec;
+}
+
+.about_section .img-box img {
+  width: 100%;
+  -webkit-transform: translateX(45px);
+          transform: translateX(45px);
+}
+
+.about_section .detail-box {
+  text-align: center;
+  padding: 35px 45px;
+}
+
+.about_section .detail-box .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .detail-box .heading_container hr {
+  width: 1px;
+  height: 145px;
+  margin: 0;
+  border: none;
+  background-color: #b7b7b7;
+  margin-bottom: 10px;
+}
+
+.about_section .detail-box p {
+  margin-top: 10px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: #313131;
+  border: 1px solid #313131;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: transparent;
+  color: #313131;
+}
+
+.fruit_section .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 35px;
+}
+
+.fruit_section .heading_container hr {
+  width: 20%;
+  height: 1px;
+  border: none;
+  margin: 0;
+  margin-right: 10px;
+  background-color: #b7b7b7;
+}
+
+.fruit_section .heading_container h2 {
+  margin: 0;
+}
+
+.fruit_section .fruit_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fruit_section .fruit_container .box {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 31.33%;
+          flex: 0 0 31.33%;
+  margin: 1%;
+  position: relative;
+  overflow: hidden;
+}
+
+.fruit_section .fruit_container .box img {
+  width: 100%;
+}
+
+.fruit_section .fruit_container .box .link_box {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: #252525;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.fruit_section .fruit_container .box .link_box h5 {
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.fruit_section .fruit_container .box .link_box a {
+  display: inline-block;
+  padding: 7px 35px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 15px;
+}
+.filter_section {
+  /* Add more padding inside the section for larger space */
+  padding: 7rem 0;
+}
+
+#itinerary-display {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  max-width: 90%; /* Max width of the box */
+  margin-left: auto; /* Center the box horizontally */
+  margin-right: auto; /* Center the box horizontally */
+  overflow: auto; /* Add scroll if content is too long */
+}
+
+#itinerary-display h2,
+#itinerary-display #itinerary-text {
+  color: #ffffff; /* Set text color to white */
+  font-family: 'Poppins', sans-serif; /* Assuming you want to use Poppins font */
+  text-align: center; /* If you want the text to be centered */
+  margin: 0; /* Removes default margin from headings and paragraphs */
+}
+
+#itinerary-display .itinerary-text strong {
+  font-size: 1.5em; /* Increase the font size of Koramangala or other <strong> elements */
+  display: block; /* Makes it take a full line for emphasis */
+}
+
+
+
+.fruit_section .fruit_container .box .link_box a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.fruit_section .fruit_container .box:hover .link_box {
+  top: 0;
+  opacity: 0.9;
+}
+
+.client_section .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.client_section .heading_container hr {
+  width: 20%;
+  height: 1px;
+  border: none;
+  margin: 0;
+  margin-left: 10px;
+  background-color: #b7b7b7;
+}
+
+.client_section .client_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 85%;
+  margin: auto;
+}
+
+.client_section .client_container .img-box {
+  width: 175px;
+  border-radius: 100%;
+}
+
+.client_section .client_container .img-box img {
+  width: 100%;
+}
+
+.client_section .client_container .detail-box {
+  margin-top: 25px;
+}
+
+.client_section .client_container .detail-box h5 {
+  color: #1d1b28;
+  margin-bottom: 15px;
+}
+
+.client_section .client_container .detail-box p {
+  color: #1d1b28;
+  margin: 20px;
+}
+
+.client_section .client_container .detail-box p img {
+  width: 25px;
+  margin: 3px 10px;
+}
+
+.client_section .client_container .detail-box img {
+  width: 60px;
+}
+
+.client_section .carousel-control-prev,
+.client_section .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #313131;
+  opacity: 1;
+  top: 28%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.client_section .carousel-control-prev:hover,
+.client_section .carousel-control-next:hover {
+  background-color: #000000;
+}
+
+.client_section .carousel-control-prev {
+  background-image: url(../images/prev.png);
+  left: 15%;
+}
+
+.client_section .carousel-control-next {
+  background-image: url(../images/next.png);
+  right: 15%;
+}
+
+/* contact section */
+.contact_section {
+  position: relative;
+}
+
+.contact_section .heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 35px;
+}
+
+.contact_section .heading_container hr {
+  width: 20%;
+  height: 1px;
+  border: none;
+  margin: 0;
+  margin-right: 10px;
+  background-color: #b7b7b7;
+}
+
+.contact_section .heading_container h2 {
+  margin: 0;
+}
+
+.contact_section input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.contact_section input:-ms-input-placeholder {
+  color: #000;
+}
+
+.contact_section input::-ms-input-placeholder {
+  color: #000;
+}
+
+.contact_section input::placeholder {
+  color: #000;
+}
+
+.contact_section input {
+  border: none;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  margin: 10px 0;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  padding-left: 15px;
+}
+
+.contact_section input::-webkit-input-placeholder {
+  color: #ac9784;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.contact_section input:-ms-input-placeholder {
+  color: #ac9784;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.contact_section input::-ms-input-placeholder {
+  color: #ac9784;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.contact_section input::placeholder {
+  color: #ac9784;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.contact_section input.message_input {
+  height: 100px;
+}
+
+.contact_form-container {
+  padding: 15px 15px 15px 0;
+}
+
+.contact_form-container button {
+  border: none;
+  background-color: #fd9e2e;
+  color: #fff;
+  padding: 10px 55px;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 35px;
+}
+
+.map_container {
+  height: 350px;
+}
+
+.map_container .map-responsive {
+  height: 100%;
+}
+
+/* contact section */
+/* info section */
+.info_section {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+
+.info_section h6 {
+  font-weight: bold;
+}
+
+.info_section .info_logo h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.info_section .info_contact {
+  margin-top: 60px;
+  margin-bottom: 45px;
+}
+
+.info_section .info_contact .col-md-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.info_section .info_contact a {
+  color: #ffffff;
+}
+
+.info_section .info_contact img {
+  max-width: 100%;
+  margin-right: 10px;
+}
+
+.info_section .info_form {
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+
+.info_section .info_form h4 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info_section .info_form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info_section .info_form form input {
+  background-color: #ffffff;
+  border: none;
+  -webkit-box-flex: 2.5;
+      -ms-flex: 2.5;
+          flex: 2.5;
+  outline: none;
+  color: #000000;
+  min-height: 42.4px;
+  padding-left: 15px;
+}
+
+.info_section .info_form form input ::-webkit-input-placeholder {
+  color: #ffffff;
+  opacity: 0.2;
+}
+
+.info_section .info_form form input :-ms-input-placeholder {
+  color: #ffffff;
+  opacity: 0.2;
+}
+
+.info_section .info_form form input ::-ms-input-placeholder {
+  color: #ffffff;
+  opacity: 0.2;
+}
+
+.info_section .info_form form input ::placeholder {
+  color: #ffffff;
+  opacity: 0.2;
+}
+
+.info_section .info_form form button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: inline-block;
+  padding: 9px 30px;
+  background-color: #f89e12;
+  border: 1px solid #f89e12;
+  color: #ffffff;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.info_section .info_form form button:hover {
+  background-color: transparent;
+  color: #f89e12;
+}
+
+.info_section .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.info_section .info_social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.info_section .info_social img {
+  width: 35px;
+  margin-right: 8px;
+}
+
+/* end info section */
+/* footer section*/
+.footer_section {
+  background-color: #ffffff;
+  padding: 20px 15px;
+}
+
+.footer_section p {
+  margin: 0;
+  text-align: center;
+  color: #222222;
+}
+
+.footer_section a {
+  color: #222222;
+}
+
+/* end footer section*/
+/*# sourceMappingURL=style.css.map */
+/* Chat button styling */
+.chat-button {
+  background: linear-gradient(45deg, #FFD700, #FFA500); /* Gradient yellow */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat modal styling */
+.modal-content {
+  border-radius: 20px; /* Consistent rounded edges */
+  background-color: #252525; /* Dark background for contrast */
+  color: #fff; /* White text color */
+}
+
+.modal-header, .modal-footer {
+  border-bottom: none;
+  border-top: none;
+}
+
+.modal-header .close {
+  color: #fff;
+  opacity: 1;
+}
+
+.modal-header .close:hover {
+  color: #FFD700; /* Highlight color for close button on hover */
+}
+
+#chat-container {
+  background-color: #333; /* Slightly lighter background for chat area */
+  color: #fff; /* White text color */
+}
+
+#chat-input {
+  background-color: #252525;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 10px;
+}
+
+#chat-input::placeholder {
+  color: #aaa;
+}
+
+.modal-footer .btn-primary {
+  background: linear-gradient(45deg, #FFD700, #FFA500); /* Gradient yellow */
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+
+.modal-footer .btn-primary:hover {
+  background: linear-gradient(45deg, #FFA500, #FFD700); /* Reverse gradient on hover */
+}
+
+/* Additional modal backdrop styling */
+.modal-backdrop.show {
+  opacity: 0.5 !important; /* Adjust transparency */
+  backdrop-filter: blur(10px); /* The actual blur effect */
+}
